@@ -81,6 +81,7 @@ switched to db FirstDB
 }
 > show collections
 movies
+//filtering movies
 > db.movies.find({rating:7})
 { "_id" : ObjectId("61d44a7b1e7ab1c510649461"), "name" : "Iron man 2", "poster" : "https://m.media-amazon.com/images/M/MV5BMTM0MDgwNjMyMl5BMl5BanBnXkFtZTcwNTg3NzAzMw@@._V1_FMjpg_UX1000_.jpg", "rating" : 7, "summary" : "With the world now aware that he is Iron Man, billionaire inventor Tony Stark (Robert Downey Jr.) faces pressure from all sides to share his technology with the military. He is reluctant to divulge the secrets of his armored suit, fearing the information will fall into the wrong hands. With Pepper Potts (Gwyneth Paltrow) and Rhodes (Don Cheadle) by his side, Tony must forge new alliances and confront a powerful new enemy." }
 > db.movies.find({}).pretty()
@@ -140,9 +141,10 @@ movies
         "rating" : 8,
         "summary" : "Remy, a rat, aspires to become a renowned French chef. However, he fails to realise that people despise rodents and will never enjoy a meal cooked by him."
 }
-
+//deleting movies
 > db.movies.deleteMany({rating:{$gt: 8.6}})
 { "acknowledged" : true, "deletedCount" : 2 }
+// updating value
 > db.movies.updateOne({"name" : "Jai Bhim"},{$set:{"rating":9}})
 { "acknowledged" : true, "matchedCount" : 0, "modifiedCount" : 0 }
 > db.movies.find({}).pretty()
